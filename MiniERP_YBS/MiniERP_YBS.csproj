@@ -46,13 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnaMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaMenuForm.Designer.cs">
+      <DependentUpon>AnaMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessLayer\MusteriBLL.cs" />
     <Compile Include="BusinessLayer\PersonelBLL.cs" />
+    <Compile Include="BusinessLayer\SatisBLL.cs" />
+    <Compile Include="BusinessLayer\UrunBLL.cs" />
     <Compile Include="DataAccessLayer\baglanti.cs" />
     <Compile Include="DataAccessLayer\deparmanDal.cs" />
+    <Compile Include="DataAccessLayer\MusteriDAL.cs" />
     <Compile Include="DataAccessLayer\PersonelDAL.cs" />
+    <Compile Include="DataAccessLayer\SatisDAL.cs" />
+    <Compile Include="DataAccessLayer\UrunDAL.cs" />
     <Compile Include="EntityLayer\departman.cs" />
     <Compile Include="EntityLayer\müsteri.cs" />
     <Compile Include="EntityLayer\personelü.cs" />
+    <Compile Include="EntityLayer\Satis.cs" />
     <Compile Include="EntityLayer\ürün.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -60,10 +73,37 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MusterilerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusterilerForm.Designer.cs">
+      <DependentUpon>MusterilerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SatislarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SatislarForm.Designer.cs">
+      <DependentUpon>SatislarForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AnaMenuForm.resx">
+      <DependentUpon>AnaMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusterilerForm.resx">
+      <DependentUpon>MusterilerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -74,6 +114,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SatislarForm.resx">
+      <DependentUpon>SatislarForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

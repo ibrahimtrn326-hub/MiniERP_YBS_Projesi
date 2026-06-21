@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniERP_YBS.EntityLayer
 {
-   public class müsteri
+   public class Musteri
     {
         public int MusteriID { get; set; }
         public string SirketAdi_AdSoyad { get; set; }

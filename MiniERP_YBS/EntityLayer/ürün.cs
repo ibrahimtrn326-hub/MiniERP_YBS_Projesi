@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniERP_YBS.EntityLayer
 {
-   public class ürün
+   public class Urun
     {
 
         public int UrunID { get; set; }
