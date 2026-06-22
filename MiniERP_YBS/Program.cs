@@ -16,7 +16,7 @@ namespace MiniERP_YBS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AnaMenuForm());
+            Application.Run(new LoginForm());
         }
     }
 }

@@ -56,6 +56,7 @@
     <Compile Include="BusinessLayer\PersonelBLL.cs" />
     <Compile Include="BusinessLayer\SatisBLL.cs" />
     <Compile Include="BusinessLayer\UrunBLL.cs" />
+    <Compile Include="DataAccessLayer\AdminDAL.cs" />
     <Compile Include="DataAccessLayer\baglanti.cs" />
     <Compile Include="DataAccessLayer\deparmanDal.cs" />
     <Compile Include="DataAccessLayer\MusteriDAL.cs" />
@@ -79,6 +80,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MusterilerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MusterilerForm.resx">
       <DependentUpon>MusterilerForm.cs</DependentUpon>
