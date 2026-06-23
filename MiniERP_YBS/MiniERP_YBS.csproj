@@ -52,6 +52,7 @@
     <Compile Include="AnaMenuForm.Designer.cs">
       <DependentUpon>AnaMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessLayer\IstatistikBLL.cs" />
     <Compile Include="BusinessLayer\MusteriBLL.cs" />
     <Compile Include="BusinessLayer\PersonelBLL.cs" />
     <Compile Include="BusinessLayer\SatisBLL.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="DataAccessLayer\AdminDAL.cs" />
     <Compile Include="DataAccessLayer\baglanti.cs" />
     <Compile Include="DataAccessLayer\deparmanDal.cs" />
+    <Compile Include="DataAccessLayer\IstatistikDAL.cs" />
     <Compile Include="DataAccessLayer\MusteriDAL.cs" />
     <Compile Include="DataAccessLayer\PersonelDAL.cs" />
     <Compile Include="DataAccessLayer\SatisDAL.cs" />

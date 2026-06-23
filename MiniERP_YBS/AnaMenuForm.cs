@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MiniERP_YBS.DataAccessLayer;
 
 namespace MiniERP_YBS
 {
@@ -39,6 +40,22 @@ namespace MiniERP_YBS
         {
             SatislarForm satisSayfasi = new SatislarForm();
             satisSayfasi.Show();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AnaMenuForm_Load(object sender, EventArgs e)
+        {
+            lblUrunSayisi1.Text = BusinessLayer.IstatistikBLL.UrunSayisiBLL().ToString();
+            lblMusteriSayisi.Text = BusinessLayer.IstatistikBLL.MusteriSayisiBLL().ToString();
+            lblSatisAdedi.Text = BusinessLayer.IstatistikBLL.ToplamSatisAdediBLL().ToString();
+            lblCiro.Text = BusinessLayer.IstatistikBLL.ToplamCiroBLL();
+
+            // DAL katmanındaki metotları çağırıp, gelen sayıları string'e (metne) çevirerek etiketlere yazdırıyoruz.
+
         }
     }
 }
