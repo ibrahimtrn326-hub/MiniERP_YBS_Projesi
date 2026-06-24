@@ -57,5 +57,10 @@ namespace MiniERP_YBS
             // DAL katmanındaki metotları çağırıp, gelen sayıları string'e (metne) çevirerek etiketlere yazdırıyoruz.
 
         }
+
+        private void btnExcelAktar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

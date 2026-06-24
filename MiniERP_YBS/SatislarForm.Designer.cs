@@ -39,6 +39,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxAdet = new System.Windows.Forms.TextBox();
             this.textBoxFiyat = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxUrun
@@ -134,11 +137,33 @@
             this.textBoxFiyat.Size = new System.Drawing.Size(154, 22);
             this.textBoxFiyat.TabIndex = 12;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(765, 33);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(814, 388);
+            this.dataGridView1.TabIndex = 13;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(506, 295);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 70);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "EXCEL ÇIKTI ALMA";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SatislarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 399);
+            this.ClientSize = new System.Drawing.Size(1617, 447);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBoxFiyat);
             this.Controls.Add(this.textBoxAdet);
             this.Controls.Add(this.label5);
@@ -153,6 +178,7 @@
             this.Name = "SatislarForm";
             this.Text = "SatislarForm";
             this.Load += new System.EventHandler(this.SatislarForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +197,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxAdet;
         private System.Windows.Forms.TextBox textBoxFiyat;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
     }
 }
