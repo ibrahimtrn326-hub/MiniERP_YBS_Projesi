@@ -53,5 +53,42 @@ namespace MiniERP_YBS.DataAccessLayer
 
             return sonuc;
         }
+        // 1. Müşteri Güncelleme DAL
+        public static bool MusteriGuncelleDAL(Musteri m)
+        {
+            System.Data.SqlClient.SqlConnection baglanti = MiniERP_YBS.DataAccessLayer.Baglanti.BaglantiAl();
+            System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("UPDATE Musteriler SET SirketAdi_AdSoyad=@p1, Telefon=@p2 WHERE MusteriID=@p3", baglanti);
+
+            komut.Parameters.AddWithValue("@p1", m.SirketAdi_AdSoyad);
+            komut.Parameters.AddWithValue("@p2", m.Telefon);
+            komut.Parameters.AddWithValue("@p3", m.MusteriID);
+
+            if (komut.Connection.State != System.Data.ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+
+            int sonuc = komut.ExecuteNonQuery();
+            baglanti.Close();
+            return sonuc > 0;
+        }
+
+        // 2. Müşteri Silme DAL
+        public static bool MusteriSilDAL(int id)
+        {
+            System.Data.SqlClient.SqlConnection baglanti = MiniERP_YBS.DataAccessLayer.Baglanti.BaglantiAl();
+            System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("DELETE FROM Musteriler WHERE MusteriID=@p1", baglanti);
+
+            komut.Parameters.AddWithValue("@p1", id);
+
+            if (komut.Connection.State != System.Data.ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+
+            int sonuc = komut.ExecuteNonQuery();
+            baglanti.Close();
+            return sonuc > 0;
+        }
     }
 }

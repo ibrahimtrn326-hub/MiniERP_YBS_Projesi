@@ -30,5 +30,29 @@ namespace MiniERP_YBS.BusinessLayer
                 return -1;
             }
         }
+        public static bool UrunGuncelleBLL(Urun u)
+        {
+            // Ürün adı boş olmasın ve stok/fiyat eksi değerlere düşmesin diye güvenlik koyuyoruz
+            if (u.UrunAdi != "" && u.UrunAdi.Length >= 2 && u.StokMiktari >= 0 && u.BirimFiyat > 0)
+            {
+                return UrunDAL.UrunGuncelleDAL(u); // Şartlar sağlanıyorsa DAL katmanına gönder
+            }
+            else
+            {
+                return false; // Hatalı giriş varsa işlemi reddet
+            }
+        }
+        public static bool UrunSilBLL(int id)
+        {
+            // ID 0'dan büyükse (yani gerçekten geçerli bir ürün seçilmişse) DAL katmanına gönder ve sil
+            if (id > 0)
+            {
+                return UrunDAL.UrunSilDAL(id);
+            }
+            else
+            {
+                return false; // Hatalı bir ID geldiyse işlemi reddet
+            }
+        }
     }
 }

@@ -31,6 +31,27 @@ namespace MiniERP_YBS.BusinessLayer
                 return -1;
             }
         }
+        // 1. Müşteri Güncelleme BLL
+        public static bool MusteriGuncelleBLL(Musteri m)
+        {
+            if (m.SirketAdi_AdSoyad != "" && m.Telefon.Length >= 10)
+            {
+                return MusteriDAL.MusteriGuncelleDAL(m);
+            }
+            return false;
+        }
+
+        // 2. Müşteri Silme BLL
+        public static bool MusteriSilBLL(int id)
+        {
+            if (id > 0)
+            {
+                return MusteriDAL.MusteriSilDAL(id);
+            }
+            return false;
+        }
+
     }
-}
+    }
+
 
