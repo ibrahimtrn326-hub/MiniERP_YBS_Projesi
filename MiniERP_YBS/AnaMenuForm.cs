@@ -62,5 +62,12 @@ namespace MiniERP_YBS
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Az önce sıfırdan yaptığımız o küçük formun adını yazıyoruz
+            DepartmanForm frmDepartman = new DepartmanForm();
+            frmDepartman.Show();
+        }
     }
 }

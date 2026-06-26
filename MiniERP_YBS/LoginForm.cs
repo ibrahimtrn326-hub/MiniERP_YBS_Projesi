@@ -33,6 +33,12 @@ namespace MiniERP_YBS
                 MessageBox.Show("Kullanıcı adı veya şifre hatalı knk!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+           label1.BackColor=Color.Transparent;
+            label2.BackColor=Color.Transparent;
+        }
     }
     }
 

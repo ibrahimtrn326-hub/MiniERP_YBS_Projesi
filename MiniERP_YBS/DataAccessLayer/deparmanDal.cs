@@ -34,5 +34,60 @@ namespace MiniERP_YBS.DataAccessLayer
 
             return departmanlar;
         }
+        // 1. Departman Silme DAL
+        public static bool DepartmanSilDAL(int id)
+        {
+            System.Data.SqlClient.SqlConnection baglanti = MiniERP_YBS.DataAccessLayer.Baglanti.BaglantiAl();
+            System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("DELETE FROM Departmanlar WHERE DepartmanID=@p1", baglanti);
+
+            komut.Parameters.AddWithValue("@p1", id);
+
+            if (komut.Connection.State != System.Data.ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+
+            int sonuc = komut.ExecuteNonQuery();
+            baglanti.Close();
+            return sonuc > 0;
+        }
+
+        // 2. Departman Güncelleme DAL
+        public static bool DepartmanGuncelleDAL(Departman d)
+        {
+            System.Data.SqlClient.SqlConnection baglanti = MiniERP_YBS.DataAccessLayer.Baglanti.BaglantiAl();
+            System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("UPDATE Departmanlar SET DepartmanAdi=@p1 WHERE DepartmanID=@p2", baglanti);
+
+            komut.Parameters.AddWithValue("@p1", d.DepartmanAdi);
+            komut.Parameters.AddWithValue("@p2", d.DepartmanID);
+
+            if (komut.Connection.State != System.Data.ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+
+            int sonuc = komut.ExecuteNonQuery();
+            baglanti.Close();
+            return sonuc > 0;
+        }
+        public static bool DepartmanEkleDAL(Departman d)
+        {
+            System.Data.SqlClient.SqlConnection baglanti = MiniERP_YBS.DataAccessLayer.Baglanti.BaglantiAl();
+
+            System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("INSERT INTO Departmanlar (DepartmanAdi) VALUES (@p1)", baglanti);
+
+            // Senin BLL'de kullandığın isme (DepartmanAdi) göre uyarladım
+            komut.Parameters.AddWithValue("@p1", d.DepartmanAdi);
+
+            if (komut.Connection.State != System.Data.ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+
+            int sonuc = komut.ExecuteNonQuery();
+            baglanti.Close();
+
+            return sonuc > 0;
+        }
     }
 }

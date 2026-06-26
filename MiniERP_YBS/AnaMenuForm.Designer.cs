@@ -41,6 +41,7 @@
             this.lblSatisAdedi = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblCiro = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -175,11 +176,23 @@
             this.lblCiro.Text = "label9";
             this.lblCiro.Click += new System.EventHandler(this.label9_Click);
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button5.Location = new System.Drawing.Point(434, 386);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(185, 73);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Departman Ayarları";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // AnaMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1472, 487);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.lblCiro);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblSatisAdedi);
@@ -216,5 +229,6 @@
         private System.Windows.Forms.Label lblSatisAdedi;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblCiro;
+        private System.Windows.Forms.Button button5;
     }
 }
