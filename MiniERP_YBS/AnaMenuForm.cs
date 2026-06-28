@@ -69,5 +69,12 @@ namespace MiniERP_YBS
             DepartmanForm frmDepartman = new DepartmanForm();
             frmDepartman.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            IstatistikForm F1= new IstatistikForm();
+            F1.Show();
+
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace MiniERP_YBS
 {
     public partial class Form1 : Form
     {
+        int secilenPersonelID = 0;
         public Form1()
         {
             InitializeComponent();
@@ -64,7 +65,78 @@ namespace MiniERP_YBS
                 MessageBox.Show("Lütfen veri girişlerini doğru formatta yapınız! Hata: " + ex.Message, "Sistem Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (secilenPersonelID != 0)
+            {
+                DialogResult cevap = MessageBox.Show("Bu personeli sistemden silmek istediğine emin misin?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (cevap == DialogResult.Yes)
+                {
+                    if (PersonelBLL.PersonelSilBLL(secilenPersonelID))
+                    {
+                        MessageBox.Show("Personel sistemden silindi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Listele(); metodun varsa onu çağırıp tabloyu yenile
+                        Listele();
+                        textBox1.Clear();
+                        textBox2.Clear();
+                        textBox4.Clear();
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                secilenPersonelID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+
+                // TextBox isimlerini kendi formundaki isimlere göre uyarlamayı unutma knk
+                textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                // Departman 2. indekste, Maaş 3. indekste! İşte çözüldü.
+                textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+               textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (secilenPersonelID != 0)
+            {
+                Personel guncelPersonel = new Personel();
+                guncelPersonel.PersonelID = secilenPersonelID;
+                guncelPersonel.AdSoyad = textBox1.Text;
+                guncelPersonel.Maas = Convert.ToDecimal(textBox2.Text);
+                guncelPersonel.DepartmanID = Convert.ToInt32(textBox4.Text);
+
+                try
+                {
+                    if (PersonelBLL.PersonelGuncelleBLL(guncelPersonel))
+                    {
+                        MessageBox.Show("Personel bilgileri başarıyla güncellendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Listele();
+                        textBox1.Clear();
+                        textBox2.Clear();
+                        textBox4.Clear();
+                    }
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    // SQL Hata Kodu 547: Foreign Key (İlişkisel Veri) ihlalidir
+                    if (ex.Number == 547)
+                    {
+                        MessageBox.Show("Hata: Girdiğiniz Departman Numarası sistemde bulunamadı! Lütfen Departmanlar listesinde var olan geçerli bir ID girin.", "Geçersiz Departman", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Veritabanı hatası: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
     }
 }
-    
+}
+
 

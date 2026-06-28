@@ -31,5 +31,19 @@ namespace MiniERP_YBS.BusinessLayer
             // Gelen sayıyı ekranda "1.250,00 TL" şeklinde çok şık, kurumsal bir para formatında gösterir:
             return ciro.ToString("N2") + " TL";
         }
+        public static int ToplamPersonelBLL()
+        {
+            return IstatistikDAL.ToplamPersonelDAL();
+        }
+
+        public static decimal ToplamMaasBLL()
+        {
+            return IstatistikDAL.ToplamMaasDAL();
+        }
+
+        public static decimal EnYuksekMaasBLL()
+        {
+            return IstatistikDAL.EnYuksekMaasDAL();
+        }
     }
 }

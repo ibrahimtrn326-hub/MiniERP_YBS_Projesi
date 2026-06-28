@@ -55,6 +55,60 @@ namespace MiniERP_YBS.DataAccessLayer
             baglanti.Close();
             return ciro;
         }
+        public static int ToplamPersonelDAL()
+        {
+            System.Data.SqlClient.SqlConnection baglanti = MiniERP_YBS.DataAccessLayer.Baglanti.BaglantiAl();
+
+            // COUNT(*) -> Tablodaki tüm satırları sayar
+            System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("SELECT COUNT(*) FROM Personeller", baglanti);
+
+            if (komut.Connection.State != System.Data.ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+
+            // ExecuteScalar() tek bir değer döndüreceği zaman kullanılır!
+            int sonuc = Convert.ToInt32(komut.ExecuteScalar());
+            baglanti.Close();
+            return sonuc;
+        }
+
+        // 2. Şirketin Toplam Maaş Giderini Hesaplayan Metot
+        public static decimal ToplamMaasDAL()
+        {
+            System.Data.SqlClient.SqlConnection baglanti = MiniERP_YBS.DataAccessLayer.Baglanti.BaglantiAl();
+
+            // SUM(Maas) -> Maaş sütunundaki tüm değerleri toplar
+            System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("SELECT SUM(Maas) FROM Personeller", baglanti);
+
+            if (komut.Connection.State != System.Data.ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+
+            // Maaş ondalıklı olabileceği için decimal'a çeviriyoruz
+            decimal sonuc = Convert.ToDecimal(komut.ExecuteScalar());
+            baglanti.Close();
+            return sonuc;
+        }
+
+        // 3. En Yüksek Maaşı Bulan Metot
+        public static decimal EnYuksekMaasDAL()
+        {
+            System.Data.SqlClient.SqlConnection baglanti = MiniERP_YBS.DataAccessLayer.Baglanti.BaglantiAl();
+
+            // MAX(Maas) -> Maaş sütunundaki en büyük değeri bulur
+            System.Data.SqlClient.SqlCommand komut = new System.Data.SqlClient.SqlCommand("SELECT MAX(Maas) FROM Personeller", baglanti);
+
+            if (komut.Connection.State != System.Data.ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+
+            decimal sonuc = Convert.ToDecimal(komut.ExecuteScalar());
+            baglanti.Close();
+            return sonuc;
+        }
 
     }
 }

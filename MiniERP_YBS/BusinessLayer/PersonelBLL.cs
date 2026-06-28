@@ -33,6 +33,26 @@ namespace MiniERP_YBS.BusinessLayer
                 return -1;
             }
         }
+        // 1. Personel Güncelleme BLL
+        public static bool PersonelGuncelleBLL(Personel p)
+        {
+            // İsim boş olmasın ve maaş 0'dan büyük olsun
+            if (p.AdSoyad != "" && p.Maas > 0 && p.DepartmanID > 0)
+            {
+                return PersonelDAL.PersonelGuncelleDAL(p);
+            }
+            return false;
+        }
+
+        // 2. Personel Silme BLL
+        public static bool PersonelSilBLL(int id)
+        {
+            if (id > 0)
+            {
+                return PersonelDAL.PersonelSilDAL(id);
+            }
+            return false;
+        }
     }
 }
 
